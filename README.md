@@ -21,7 +21,7 @@
 - [ ] 주문 내역 조회
 - [ ] 주문 취소
 
-#ERD
+# ERD
 ![erdd](https://github.com/jppark93/commerce/assets/50139455/df1e3188-a780-444f-ba5c-0f299aa9d739)
 
 
