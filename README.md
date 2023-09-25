@@ -37,7 +37,8 @@
 - [ ] 주문 취소
 
 # ERD
-![nnnnn](https://github.com/jppark93/commerce/assets/50139455/cee4c37e-5255-4eb7-b332-58dcb21e1729)
+
+![HGHHGG](https://github.com/jppark93/commerce/assets/50139455/6627b50e-8966-4daa-a9dd-478a3d9adb4d)
 
 
 
