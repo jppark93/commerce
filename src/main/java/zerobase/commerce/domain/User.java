@@ -44,11 +44,6 @@ public class User {
                 .phoneNumber(signUpDto.getPhone())
                 .build();
     }
-    public static User from(SignInDto signInDto) {
-        return User.builder()
-                .userName(signInDto.getUserName())
-                .password(signInDto.getPassword())
-                .build();
-    }
+
 
 }
