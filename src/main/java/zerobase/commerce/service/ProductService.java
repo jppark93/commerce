@@ -2,7 +2,6 @@ package zerobase.commerce.service;
 
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import zerobase.commerce.domain.Product;
 import zerobase.commerce.dto.ProductDto;
 import zerobase.commerce.exception.UserException;
-import zerobase.commerce.repository.ProjectRepository;
+import zerobase.commerce.repository.ProductRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,7 +21,7 @@ import static zerobase.commerce.type.ErrorCode.PRODUCT_NOT_EXIST;
 @Transactional
 public class ProductService {
 
-    private final ProjectRepository productRepository;
+    private final ProductRepository productRepository;
 
     public Product productReg(ProductDto productDto) throws UserException {
 
@@ -55,6 +54,9 @@ public class ProductService {
     }
 
     public void deleteProduct(Long productId) {
-        productRepository.deleteById(productId);
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new UserException(PRODUCT_NOT_EXIST));
+        //productRepository.deleteById(productId);
+        productRepository.delete(product);
     }
 }

@@ -14,6 +14,8 @@ import zerobase.commerce.repository.UserRepository;
 import zerobase.commerce.security.Crypto;
 import zerobase.commerce.security.JWT;
 
+import java.util.Optional;
+
 import static zerobase.commerce.type.ErrorCode.*;
 
 @Service
@@ -72,6 +74,10 @@ public class UserService {
         users.setPassword(Crypto.encrypt(pwChangeDto.getNewPassword()));
     }
 
+    public Optional<User> getUser(Long id){
+        return userRepository.findById(id);
+    }
+
     public void deleteUser(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new UserException(USER_NOT_EXIST));
@@ -90,5 +96,7 @@ public class UserService {
 
         return updateUserDto.from(user);
     }
+
+
 }
 

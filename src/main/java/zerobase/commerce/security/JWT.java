@@ -31,9 +31,9 @@ public class JWT {
 
 
         Date nowTime = new Date();
-        byte[] keyBytes = SECRET_KEY.getBytes(StandardCharsets.UTF_8);
-        Key key = Keys.hmacShaKeyFor(keyBytes);
-
+        //byte[] keyBytes = SECRET_KEY.getBytes(StandardCharsets.UTF_8);
+        //Key key = Keys.hmacShaKeyFor(keyBytes);
+        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
         return Jwts.builder()
                 .setClaims(claims)
                 .setIssuedAt(nowTime)

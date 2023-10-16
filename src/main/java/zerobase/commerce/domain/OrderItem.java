@@ -19,6 +19,10 @@ public class OrderItem {
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
+
+    @Column(name = "order_name")
+    private String itemName;
+
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
